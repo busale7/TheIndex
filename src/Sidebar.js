@@ -10,6 +10,11 @@ function Sidebar(props) {
           <NavLink exact to="/authors">AUTHORS</NavLink>
         </h4>
       </section>
+      <section>
+        <h4 className="menu-item">
+          <NavLink exact to="/books">Books</NavLink>
+        </h4>
+      </section>
     </sidebar>
   );
 }
