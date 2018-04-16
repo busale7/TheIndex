@@ -1,6 +1,11 @@
 import {decorate, observable, computed} from 'mobx';
 import axios from 'axios';
-
+/*
+*What are its observable properties? authors,query and loading
+*What kinds of methods does it have? fetching authors from APi and returning
+*authors by id.
+* Does it have any computed properties? yes filteredAuthors
+*/
 class AuthorStore {
   constructor() {
     this.authors = [];

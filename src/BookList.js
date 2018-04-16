@@ -1,11 +1,34 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import {observer} from 'mobx-react';
 
 import Loading from './Loading';
 import SearchBar from './SearchBar';
 import BookTable from './BookTable';
 
+function BookList(props) {
+  const bookColor = props.match.params.bookColor;
+
+  const books = props.bookStore.filteredBooks
+
+  return (
+
+            <div className="books">
+              <h3>Books</h3>
+              <SearchBar store={props.bookStore}/>
+            
+                <Link to="/books">
+                <button className="btn">All Books</button>
+              </Link>
+              <BookTable books={bookColor ? books.filter(book => book.color === bookColor) : books} />
+            </div>
+
+  );
+
+}
+
+/*
 class BookList extends Component {
 
   constructor(props) {
@@ -41,5 +64,6 @@ class BookList extends Component {
             </div>;
   }
 }
+*/
 
-export default BookList;
+export default  observer(BookList);
