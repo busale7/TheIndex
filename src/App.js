@@ -20,12 +20,16 @@ function App(props) {
           <Sidebar />
         </div>
         <div className="content col-10">
-          {authorStore.loading ?
+
+    {  /*the books page "list" didnt load becasue bookStore.loading wasnt defined */}
+
+          {authorStore.loading || bookStore.loading ?
             <Loading /> :
             <Switch>
               <Route exact path='/' render={() => <Redirect to='/authors'/>}/>
               <Route path='/authors/:authorID'
-                     render={props => <AuthorDetail {...props} />}/>
+                     render={props => <AuthorDetail {...props} authorStore={authorStore}
+                     bookStore={bookStore} />}/>
               <Route path='/authors/'
                      render={
                        props => <AuthorsList {...props} authorStore={authorStore}/>

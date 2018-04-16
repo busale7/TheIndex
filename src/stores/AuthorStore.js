@@ -34,7 +34,7 @@ class AuthorStore {
 
     return [];
   }
-
+//why do we have this line? what does it do?
   getAuthorById(id) {
     return this.authors.find(author => author.id == id);
   }

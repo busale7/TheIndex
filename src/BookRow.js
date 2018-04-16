@@ -1,4 +1,6 @@
 import React from 'react';
+import {observer} from 'mobx-react';
+
 import {Link} from 'react-router-dom';
 
 function BookRow(props) {
@@ -12,7 +14,7 @@ function BookRow(props) {
     <tr>
       <td>
         <button className={`btn btn-${book.available ? 'success' : 'danger'}`}
-                onClick={() => alert("You need to make me work work work work work")}>
+                onClick={() => book.available = !book.available }>
           {book.available ? 'borrow' : 'return'}
         </button>
       </td>
@@ -27,4 +29,4 @@ function BookRow(props) {
   );
 }
 
-export default BookRow;
+export default observer(BookRow);

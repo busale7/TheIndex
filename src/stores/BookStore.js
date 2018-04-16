@@ -31,11 +31,14 @@ class BookStore {
 
     return [];
   }
-
+  getBookById(id) {
+    return this.books.find(book => book.id == id);
+  }
 
 }
 decorate(BookStore, {
-  authors:observable,
+  books:observable,
+  title:observable,
   query:observable,
   loading:observable,
   filteredBooks:computed
